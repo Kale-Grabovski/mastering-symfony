@@ -5,48 +5,50 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Client
+ * Users
  *
- * @ORM\Table(name="client")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ClientRepository")
+ * @ORM\Table(name="users")
+ * @ORM\Entity
  */
-class Client
+class Users
 {
     /**
-     * @var int
+     * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="users_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="bio", type="text")
+     * @ORM\Column(name="bio", type="text", nullable=false)
      */
     private $bio;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
+
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -58,7 +60,7 @@ class Client
      *
      * @param string $name
      *
-     * @return Client
+     * @return Users
      */
     public function setName($name)
     {
@@ -82,7 +84,7 @@ class Client
      *
      * @param string $bio
      *
-     * @return Client
+     * @return Users
      */
     public function setBio($bio)
     {
@@ -106,7 +108,7 @@ class Client
      *
      * @param string $email
      *
-     * @return Client
+     * @return Users
      */
     public function setEmail($email)
     {
@@ -125,4 +127,3 @@ class Client
         return $this->email;
     }
 }
-
