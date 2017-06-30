@@ -3,10 +3,11 @@
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Users;
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadUsers implements FixtureInterface
+class LoadUsers extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * Load data fixtures with the passed EntityManager
@@ -28,5 +29,13 @@ class LoadUsers implements FixtureInterface
         $manager->persist($user2);
 
         $manager->flush();
+
+        $this->addReference('user-john', $user1);
+        $this->addReference('user-jack', $user2);
+    }
+
+    public function getOrder()
+    {
+        return 30;
     }
 }

@@ -24,7 +24,7 @@ class Version20170629160508 extends AbstractMigration
 
         $this->addSql("CREATE TABLE workspace (id integer DEFAULT NEXTVAL('workspace_id_seq'), name character varying(255) NOT NULL, description text NOT NULL)");
         $this->addSql("CREATE TABLE users (id integer DEFAULT NEXTVAL('users_id_seq'), name character varying(255) NOT NULL, bio text NOT NULL, email character varying(255) NOT NULL)");
-        $this->addSql("CREATE TABLE task (id integer DEFAULT NEXTVAL('task_id_seq'), title character varying(255) NOT NULL, description text NOT NULL, due_date timestamp(0) with time zone NOT NULL, attachment boolean NOT NULL, project_id integer NOT NULL, user_id integer NOT NULL)");
+        $this->addSql("CREATE TABLE task (id integer DEFAULT NEXTVAL('task_id_seq'), title character varying(255) NOT NULL, description text NOT NULL, due_date timestamp(0) with time zone NOT NULL, attachment boolean, project_id integer NOT NULL, user_id integer NOT NULL)");
         $this->addSql("CREATE TABLE project (id integer DEFAULT NEXTVAL('project_id_seq'), title character varying(255) NOT NULL, description text NOT NULL, due_date timestamp(0) with time zone NOT NULL, workspace_id integer NOT NULL)");
 
         $this->addSql('ALTER TABLE ONLY task ADD CONSTRAINT task_pkey PRIMARY KEY (id)');

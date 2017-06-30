@@ -46,7 +46,7 @@ class Task
     /**
      * @var boolean
      *
-     * @ORM\Column(name="attachment", type="boolean", nullable=false)
+     * @ORM\Column(name="attachment", type="boolean")
      */
     private $attachment;
 
