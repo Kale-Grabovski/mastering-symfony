@@ -1,4 +1,4 @@
-mastering-sym
+Mastering Symfony by Sohail Saheli
 =============
 
 ```
@@ -11,4 +11,6 @@ bin/console doctrine:generate:entities AppBundle:Users
 bin/console doctrine:generate:entities AppBundle:Task
 bin/console doctrine:generate:entities AppBundle:Workspace
 bin/console doctrine:generate:entities AppBundle:Project
+
+bin/console doctrine:fixtures:load
 ```
