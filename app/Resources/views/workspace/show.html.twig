@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for project in projects %}
+        {{ project.title }}
+    {% endfor %}
+{% endblock %}
